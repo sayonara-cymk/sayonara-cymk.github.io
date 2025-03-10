@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+</head>
+<body>
+    <h2>Gerador de Tabuada</h2>
+    <input type="number" id="inicio" placeholder="Número Inicial">
+    <input type="number" id="fim" placeholder="Número Final">
+    <button onclick="gerarTabuada()">Gerar</button>
+    <pre id="saida"></pre>
+
+    <script>
+        function gerarTabuada() {
+            let inicio = parseInt(document.getElementById('inicio').value);
+            let fim = parseInt(document.getElementById('fim').value);
+            let saida = document.getElementById('saida');
+            saida.textContent = '';
+
+            if (isNaN(inicio) || isNaN(fim) || inicio > fim) {
+                alert('Insira valores válidos!');
+                return;
+            }
+
+            for (let i = inicio; i <= fim; i++) {
+                saida.textContent += `Tabuada do ${i}\n`;
+                for (let j = 1; j <= 10; j++) {
+                    saida.textContent += `${i} x ${j} = ${i * j}\n`;
+                }
+                saida.textContent += '\n';
+            }
+        }
+    </script>
+</body>
+</html>
